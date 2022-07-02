@@ -1,0 +1,22 @@
+{
+  "plugins": ["prettier"],
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "rules": {
+    "indent": ["error", 2, { "SwitchCase": "off" }],
+    "no-multiple-empty-lines": 2,
+    "no-unused-consts": 1,
+    "no-constant-condition": 1,
+    "no-debugger": 0,
+    "no-control-regex": 0,
+    "no-inner-declarations": 1,
+    "no-undef": 0,
+    "valid-typeof": 1
+  }
+}
