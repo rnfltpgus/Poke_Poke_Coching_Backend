@@ -4,22 +4,20 @@ const router = express.Router();
 const User = require('../models/user');
 
 router.post('/', async (req, res, next) => {
-  const {
-    user: { displayName, email },
-  } = req.body;
-  const findDisPlayName = await User.find({ displayName: displayName }).lean();
+  const { name, email } = req.body;
+  const findName = await User.find({ name: name }).lean();
   const findEmail = await User.find({ email: email }).lean();
 
-  if (!displayName || !email) {
+  if (!name || !email) {
     return;
   }
 
-  if (findDisPlayName[0] || findEmail[0]) {
+  if (findName[0] || findEmail[0]) {
     return;
   }
 
   await new User({
-    displayName: displayName,
+    name: name,
     email: email,
   }).save();
 

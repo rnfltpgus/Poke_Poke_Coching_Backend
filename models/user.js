@@ -1,19 +1,4 @@
-const UserSchema = new mongoose.Schema({
-  displayName: {
-    type: String,
-  },
-  email: {
-    type: String,
-    unique: true,
-    trim: true,
-  },
-  description: {
-    type: String,
-  },
-  selectMode: {
-    type: [optionSchema],
-  },
-});
+const mongoose = require('mongoose');
 
 const optionSchema = new mongoose.Schema({
   mode: {
@@ -26,3 +11,22 @@ const optionSchema = new mongoose.Schema({
     type: String,
   },
 });
+
+const userSchema = new mongoose.Schema({
+  name: {
+    type: String,
+  },
+  email: {
+    type: String,
+    unique: true,
+    trim: true,
+  },
+  description: {
+    type: String,
+  },
+  selectMode: {
+    type: optionSchema,
+  },
+});
+
+module.exports = mongoose.model('User', userSchema);
