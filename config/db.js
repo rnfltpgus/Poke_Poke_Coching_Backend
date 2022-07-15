@@ -4,16 +4,16 @@ const mongoose = require('mongoose');
 mongoose.connection.once('open', () => console.log('db connected'));
 mongoose.connection.on('error', (error) => console.log(error));
 
-function connectDB() {
+const connectDB = () => {
   mongoose.connect(process.env.MONGODB_URL, {
     useNewUrlParser: true,
-    dbName: 'poke_coching',
+    dbName: 'poke_coaching',
   });
-}
+};
 
-function disconnectDB() {
+const disconnectDB = () => {
   mongoose.disconnect();
-}
+};
 
 module.exports = {
   connectDB,
